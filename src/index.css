@@ -1,3 +1,51 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/*
+ * Design tokens — Anthropic-inspired warm/editorial palette.
+ * Centralized as CSS variables so the theme can be retuned in one place;
+ * tailwind.config.js maps utility classes (bg-bg, text-ink, bg-accent, ...)
+ * straight onto these. Colors are stored as "R G B" channel triples so
+ * Tailwind's opacity modifiers (e.g. bg-accent/40) work correctly.
+ */
+:root {
+  /* Surfaces */
+  --color-bg: 250 246 239; /* warm cream page background */
+  --color-surface: 255 255 255; /* card background */
+  --color-surface-muted: 243 236 225; /* subtle fills, skeleton blocks, table stripes */
+
+  /* Text */
+  --color-ink: 42 38 32; /* warm charcoal, not pure black */
+  --color-ink-muted: 111 101 89; /* secondary/label text */
+  --color-ink-faint: 168 157 141; /* placeholder/disabled text */
+
+  /* Accent — muted clay / terracotta, kept low-saturation so it reads as
+     warm rather than a flat "AI app" orange. Used sparingly: primary
+     buttons, the active-tab indicator, small highlights — never as a
+     large fill area. */
+  --color-accent: 199 145 123; /* soft clay: underlines, borders, small highlights */
+  --color-accent-strong: 168 92 60; /* deeper terracotta: solid button backgrounds (AA on white text) */
+  --color-accent-strong-hover: 142 75 48;
+  --color-accent-subtle: 240 229 220; /* faint tinted backgrounds, chips */
+
+  /* Borders & shadows */
+  --color-border: 231 220 204;
+  --shadow-soft: 0 1px 2px rgba(42, 38, 32, 0.06), 0 4px 12px rgba(42, 38, 32, 0.05);
+
+  /* Radii */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 18px;
+
+  /* Type */
+  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, ui-sans-serif,
+    system-ui, Helvetica, Arial, sans-serif;
+}
+
+body {
+  background-color: rgb(var(--color-bg));
+  color: rgb(var(--color-ink));
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
