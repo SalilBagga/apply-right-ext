@@ -20,5 +20,6 @@
 
     "types": ["chrome"]
   },
-  "include": ["src", "manifest.json"]
+  "include": ["src", "manifest.json"],
+  "exclude": ["src/pdf-generator"]
 }
